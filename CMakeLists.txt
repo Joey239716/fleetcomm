@@ -17,6 +17,7 @@ link_directories(${ZMQ_LIBRARY_DIRS})
 add_executable(fleetcomm
     src/main.cpp
     src/graph.cpp
+    src/car.cpp
 )
 
 target_include_directories(fleetcomm PRIVATE 
