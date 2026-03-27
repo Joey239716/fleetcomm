@@ -1,0 +1,3 @@
+/Users/joeyliu/fleetcomm/build/CMakeFiles/fleetcomm.dir
+/Users/joeyliu/fleetcomm/build/CMakeFiles/edit_cache.dir
+/Users/joeyliu/fleetcomm/build/CMakeFiles/rebuild_cache.dir

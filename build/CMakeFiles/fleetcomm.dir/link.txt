@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/fleetcomm.dir/src/main.cpp.o -o fleetcomm   -L/opt/homebrew/Cellar/zeromq/4.3.5_2/lib  -Wl,-rpath,/opt/homebrew/Cellar/zeromq/4.3.5_2/lib -lzmq
