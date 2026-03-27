@@ -129,6 +129,30 @@ fleetcomm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/build
 .PHONY : fleetcomm/fast
 
+src/car.o: src/car.cpp.o
+.PHONY : src/car.o
+
+# target to build an object file
+src/car.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.o
+.PHONY : src/car.cpp.o
+
+src/car.i: src/car.cpp.i
+.PHONY : src/car.i
+
+# target to preprocess a source file
+src/car.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.i
+.PHONY : src/car.cpp.i
+
+src/car.s: src/car.cpp.s
+.PHONY : src/car.s
+
+# target to generate assembly for a file
+src/car.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.s
+.PHONY : src/car.cpp.s
+
 src/graph.o: src/graph.cpp.o
 .PHONY : src/graph.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... fleetcomm"
+	@echo "... src/car.o"
+	@echo "... src/car.i"
+	@echo "... src/car.s"
 	@echo "... src/graph.o"
 	@echo "... src/graph.i"
 	@echo "... src/graph.s"
