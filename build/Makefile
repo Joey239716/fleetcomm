@@ -249,6 +249,30 @@ src/traffic_simulation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.s
 .PHONY : src/traffic_simulation.cpp.s
 
+src/v2v_simulation.o: src/v2v_simulation.cpp.o
+.PHONY : src/v2v_simulation.o
+
+# target to build an object file
+src/v2v_simulation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o
+.PHONY : src/v2v_simulation.cpp.o
+
+src/v2v_simulation.i: src/v2v_simulation.cpp.i
+.PHONY : src/v2v_simulation.i
+
+# target to preprocess a source file
+src/v2v_simulation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.i
+.PHONY : src/v2v_simulation.cpp.i
+
+src/v2v_simulation.s: src/v2v_simulation.cpp.s
+.PHONY : src/v2v_simulation.s
+
+# target to generate assembly for a file
+src/v2v_simulation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.s
+.PHONY : src/v2v_simulation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +297,9 @@ help:
 	@echo "... src/traffic_simulation.o"
 	@echo "... src/traffic_simulation.i"
 	@echo "... src/traffic_simulation.s"
+	@echo "... src/v2v_simulation.o"
+	@echo "... src/v2v_simulation.i"
+	@echo "... src/v2v_simulation.s"
 .PHONY : help
 
 
