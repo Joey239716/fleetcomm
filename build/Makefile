@@ -129,6 +129,30 @@ fleetcomm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/build
 .PHONY : fleetcomm/fast
 
+src/car.o: src/car.cpp.o
+.PHONY : src/car.o
+
+# target to build an object file
+src/car.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.o
+.PHONY : src/car.cpp.o
+
+src/car.i: src/car.cpp.i
+.PHONY : src/car.i
+
+# target to preprocess a source file
+src/car.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.i
+.PHONY : src/car.cpp.i
+
+src/car.s: src/car.cpp.s
+.PHONY : src/car.s
+
+# target to generate assembly for a file
+src/car.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.s
+.PHONY : src/car.cpp.s
+
 src/graph.o: src/graph.cpp.o
 .PHONY : src/graph.o
 
@@ -177,6 +201,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/spatial_grid.o: src/spatial_grid.cpp.o
+.PHONY : src/spatial_grid.o
+
+# target to build an object file
+src/spatial_grid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o
+.PHONY : src/spatial_grid.cpp.o
+
+src/spatial_grid.i: src/spatial_grid.cpp.i
+.PHONY : src/spatial_grid.i
+
+# target to preprocess a source file
+src/spatial_grid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.i
+.PHONY : src/spatial_grid.cpp.i
+
+src/spatial_grid.s: src/spatial_grid.cpp.s
+.PHONY : src/spatial_grid.s
+
+# target to generate assembly for a file
+src/spatial_grid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.s
+.PHONY : src/spatial_grid.cpp.s
+
+src/traffic_simulation.o: src/traffic_simulation.cpp.o
+.PHONY : src/traffic_simulation.o
+
+# target to build an object file
+src/traffic_simulation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o
+.PHONY : src/traffic_simulation.cpp.o
+
+src/traffic_simulation.i: src/traffic_simulation.cpp.i
+.PHONY : src/traffic_simulation.i
+
+# target to preprocess a source file
+src/traffic_simulation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.i
+.PHONY : src/traffic_simulation.cpp.i
+
+src/traffic_simulation.s: src/traffic_simulation.cpp.s
+.PHONY : src/traffic_simulation.s
+
+# target to generate assembly for a file
+src/traffic_simulation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.s
+.PHONY : src/traffic_simulation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... fleetcomm"
+	@echo "... src/car.o"
+	@echo "... src/car.i"
+	@echo "... src/car.s"
 	@echo "... src/graph.o"
 	@echo "... src/graph.i"
 	@echo "... src/graph.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/spatial_grid.o"
+	@echo "... src/spatial_grid.i"
+	@echo "... src/spatial_grid.s"
+	@echo "... src/traffic_simulation.o"
+	@echo "... src/traffic_simulation.i"
+	@echo "... src/traffic_simulation.s"
 .PHONY : help
 
 

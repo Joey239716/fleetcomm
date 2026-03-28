@@ -100,19 +100,67 @@ CMakeFiles/fleetcomm.dir/src/graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fleetcomm.dir/src/graph.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/joeyliu/fleetcomm/src/graph.cpp -o CMakeFiles/fleetcomm.dir/src/graph.cpp.s
 
+CMakeFiles/fleetcomm.dir/src/car.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
+CMakeFiles/fleetcomm.dir/src/car.cpp.o: /Users/joeyliu/fleetcomm/src/car.cpp
+CMakeFiles/fleetcomm.dir/src/car.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/fleetcomm.dir/src/car.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/car.cpp.o -MF CMakeFiles/fleetcomm.dir/src/car.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/car.cpp.o -c /Users/joeyliu/fleetcomm/src/car.cpp
+
+CMakeFiles/fleetcomm.dir/src/car.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/fleetcomm.dir/src/car.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/joeyliu/fleetcomm/src/car.cpp > CMakeFiles/fleetcomm.dir/src/car.cpp.i
+
+CMakeFiles/fleetcomm.dir/src/car.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fleetcomm.dir/src/car.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/joeyliu/fleetcomm/src/car.cpp -o CMakeFiles/fleetcomm.dir/src/car.cpp.s
+
+CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
+CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o: /Users/joeyliu/fleetcomm/src/traffic_simulation.cpp
+CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o -MF CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o -c /Users/joeyliu/fleetcomm/src/traffic_simulation.cpp
+
+CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/joeyliu/fleetcomm/src/traffic_simulation.cpp > CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.i
+
+CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/joeyliu/fleetcomm/src/traffic_simulation.cpp -o CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.s
+
+CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
+CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o: /Users/joeyliu/fleetcomm/src/spatial_grid.cpp
+CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o -MF CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o -c /Users/joeyliu/fleetcomm/src/spatial_grid.cpp
+
+CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/joeyliu/fleetcomm/src/spatial_grid.cpp > CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.i
+
+CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/joeyliu/fleetcomm/src/spatial_grid.cpp -o CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.s
+
 # Object files for target fleetcomm
 fleetcomm_OBJECTS = \
 "CMakeFiles/fleetcomm.dir/src/main.cpp.o" \
-"CMakeFiles/fleetcomm.dir/src/graph.cpp.o"
+"CMakeFiles/fleetcomm.dir/src/graph.cpp.o" \
+"CMakeFiles/fleetcomm.dir/src/car.cpp.o" \
+"CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o" \
+"CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o"
 
 # External object files for target fleetcomm
 fleetcomm_EXTERNAL_OBJECTS =
 
 fleetcomm: CMakeFiles/fleetcomm.dir/src/main.cpp.o
 fleetcomm: CMakeFiles/fleetcomm.dir/src/graph.cpp.o
+fleetcomm: CMakeFiles/fleetcomm.dir/src/car.cpp.o
+fleetcomm: CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o
+fleetcomm: CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o
 fleetcomm: CMakeFiles/fleetcomm.dir/build.make
 fleetcomm: CMakeFiles/fleetcomm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable fleetcomm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable fleetcomm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fleetcomm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
