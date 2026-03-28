@@ -85,12 +85,12 @@ clean: CMakeFiles/fleetcomm.dir/clean
 CMakeFiles/fleetcomm.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=1,2,3,4 "Built target fleetcomm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target fleetcomm"
 .PHONY : CMakeFiles/fleetcomm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/fleetcomm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/joeyliu/fleetcomm/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/joeyliu/fleetcomm/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fleetcomm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/joeyliu/fleetcomm/build/CMakeFiles 0
 .PHONY : CMakeFiles/fleetcomm.dir/rule
@@ -102,7 +102,7 @@ fleetcomm: CMakeFiles/fleetcomm.dir/rule
 # codegen rule for target.
 CMakeFiles/fleetcomm.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target fleetcomm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target fleetcomm"
 .PHONY : CMakeFiles/fleetcomm.dir/codegen
 
 # clean rule for target.
