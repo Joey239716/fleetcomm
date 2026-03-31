@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "/Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc"
+  "/Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.h"
   "CMakeFiles/fleetcomm.dir/src/car.cpp.o"
   "CMakeFiles/fleetcomm.dir/src/car.cpp.o.d"
+  "CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o"
+  "CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o.d"
   "CMakeFiles/fleetcomm.dir/src/graph.cpp.o"
   "CMakeFiles/fleetcomm.dir/src/graph.cpp.o.d"
   "CMakeFiles/fleetcomm.dir/src/main.cpp.o"

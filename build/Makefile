@@ -153,6 +153,30 @@ src/car.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/car.cpp.s
 .PHONY : src/car.cpp.s
 
+src/gen/fleetcomm.pb.o: src/gen/fleetcomm.pb.cc.o
+.PHONY : src/gen/fleetcomm.pb.o
+
+# target to build an object file
+src/gen/fleetcomm.pb.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o
+.PHONY : src/gen/fleetcomm.pb.cc.o
+
+src/gen/fleetcomm.pb.i: src/gen/fleetcomm.pb.cc.i
+.PHONY : src/gen/fleetcomm.pb.i
+
+# target to preprocess a source file
+src/gen/fleetcomm.pb.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.i
+.PHONY : src/gen/fleetcomm.pb.cc.i
+
+src/gen/fleetcomm.pb.s: src/gen/fleetcomm.pb.cc.s
+.PHONY : src/gen/fleetcomm.pb.s
+
+# target to generate assembly for a file
+src/gen/fleetcomm.pb.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fleetcomm.dir/build.make CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.s
+.PHONY : src/gen/fleetcomm.pb.cc.s
+
 src/graph.o: src/graph.cpp.o
 .PHONY : src/graph.o
 
@@ -285,6 +309,9 @@ help:
 	@echo "... src/car.o"
 	@echo "... src/car.i"
 	@echo "... src/car.s"
+	@echo "... src/gen/fleetcomm.pb.o"
+	@echo "... src/gen/fleetcomm.pb.i"
+	@echo "... src/gen/fleetcomm.pb.s"
 	@echo "... src/graph.o"
 	@echo "... src/graph.i"
 	@echo "... src/graph.s"

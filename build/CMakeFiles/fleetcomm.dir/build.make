@@ -69,13 +69,21 @@ include CMakeFiles/fleetcomm.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/fleetcomm.dir/flags.make
 
+/Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc: /Users/joeyliu/fleetcomm/proto/fleetcomm.proto
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ protobuf from fleetcomm.proto"
+	/opt/homebrew/bin/cmake -E make_directory /Users/joeyliu/fleetcomm/src/gen
+	/opt/homebrew/bin/protoc --proto_path=/Users/joeyliu/fleetcomm/proto --cpp_out=/Users/joeyliu/fleetcomm/src/gen /Users/joeyliu/fleetcomm/proto/fleetcomm.proto
+
+/Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.h: /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc
+	@$(CMAKE_COMMAND) -E touch_nocreate /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.h
+
 CMakeFiles/fleetcomm.dir/codegen:
 .PHONY : CMakeFiles/fleetcomm.dir/codegen
 
 CMakeFiles/fleetcomm.dir/src/main.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
 CMakeFiles/fleetcomm.dir/src/main.cpp.o: /Users/joeyliu/fleetcomm/src/main.cpp
 CMakeFiles/fleetcomm.dir/src/main.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fleetcomm.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/fleetcomm.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/main.cpp.o -MF CMakeFiles/fleetcomm.dir/src/main.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/main.cpp.o -c /Users/joeyliu/fleetcomm/src/main.cpp
 
 CMakeFiles/fleetcomm.dir/src/main.cpp.i: cmake_force
@@ -89,7 +97,7 @@ CMakeFiles/fleetcomm.dir/src/main.cpp.s: cmake_force
 CMakeFiles/fleetcomm.dir/src/graph.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
 CMakeFiles/fleetcomm.dir/src/graph.cpp.o: /Users/joeyliu/fleetcomm/src/graph.cpp
 CMakeFiles/fleetcomm.dir/src/graph.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/fleetcomm.dir/src/graph.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/fleetcomm.dir/src/graph.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/graph.cpp.o -MF CMakeFiles/fleetcomm.dir/src/graph.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/graph.cpp.o -c /Users/joeyliu/fleetcomm/src/graph.cpp
 
 CMakeFiles/fleetcomm.dir/src/graph.cpp.i: cmake_force
@@ -103,7 +111,7 @@ CMakeFiles/fleetcomm.dir/src/graph.cpp.s: cmake_force
 CMakeFiles/fleetcomm.dir/src/car.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
 CMakeFiles/fleetcomm.dir/src/car.cpp.o: /Users/joeyliu/fleetcomm/src/car.cpp
 CMakeFiles/fleetcomm.dir/src/car.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/fleetcomm.dir/src/car.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fleetcomm.dir/src/car.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/car.cpp.o -MF CMakeFiles/fleetcomm.dir/src/car.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/car.cpp.o -c /Users/joeyliu/fleetcomm/src/car.cpp
 
 CMakeFiles/fleetcomm.dir/src/car.cpp.i: cmake_force
@@ -117,7 +125,7 @@ CMakeFiles/fleetcomm.dir/src/car.cpp.s: cmake_force
 CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
 CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o: /Users/joeyliu/fleetcomm/src/traffic_simulation.cpp
 CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o -MF CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o -c /Users/joeyliu/fleetcomm/src/traffic_simulation.cpp
 
 CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.i: cmake_force
@@ -131,7 +139,7 @@ CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.s: cmake_force
 CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
 CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o: /Users/joeyliu/fleetcomm/src/spatial_grid.cpp
 CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o -MF CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o -c /Users/joeyliu/fleetcomm/src/spatial_grid.cpp
 
 CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.i: cmake_force
@@ -145,7 +153,7 @@ CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.s: cmake_force
 CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o: CMakeFiles/fleetcomm.dir/flags.make
 CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o: /Users/joeyliu/fleetcomm/src/v2v_simulation.cpp
 CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o -MF CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o.d -o CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o -c /Users/joeyliu/fleetcomm/src/v2v_simulation.cpp
 
 CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.i: cmake_force
@@ -156,6 +164,20 @@ CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/joeyliu/fleetcomm/src/v2v_simulation.cpp -o CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.s
 
+CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o: CMakeFiles/fleetcomm.dir/flags.make
+CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o: /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc
+CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o: CMakeFiles/fleetcomm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o -MF CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o.d -o CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o -c /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc
+
+CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc > CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.i
+
+CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc -o CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.s
+
 # Object files for target fleetcomm
 fleetcomm_OBJECTS = \
 "CMakeFiles/fleetcomm.dir/src/main.cpp.o" \
@@ -163,7 +185,8 @@ fleetcomm_OBJECTS = \
 "CMakeFiles/fleetcomm.dir/src/car.cpp.o" \
 "CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o" \
 "CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o" \
-"CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o"
+"CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o" \
+"CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o"
 
 # External object files for target fleetcomm
 fleetcomm_EXTERNAL_OBJECTS =
@@ -174,9 +197,11 @@ fleetcomm: CMakeFiles/fleetcomm.dir/src/car.cpp.o
 fleetcomm: CMakeFiles/fleetcomm.dir/src/traffic_simulation.cpp.o
 fleetcomm: CMakeFiles/fleetcomm.dir/src/spatial_grid.cpp.o
 fleetcomm: CMakeFiles/fleetcomm.dir/src/v2v_simulation.cpp.o
+fleetcomm: CMakeFiles/fleetcomm.dir/src/gen/fleetcomm.pb.cc.o
 fleetcomm: CMakeFiles/fleetcomm.dir/build.make
+fleetcomm: /opt/homebrew/lib/libprotobuf.dylib
 fleetcomm: CMakeFiles/fleetcomm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable fleetcomm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/joeyliu/fleetcomm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable fleetcomm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fleetcomm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -187,7 +212,8 @@ CMakeFiles/fleetcomm.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/fleetcomm.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/fleetcomm.dir/clean
 
-CMakeFiles/fleetcomm.dir/depend:
+CMakeFiles/fleetcomm.dir/depend: /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.cc
+CMakeFiles/fleetcomm.dir/depend: /Users/joeyliu/fleetcomm/src/gen/fleetcomm.pb.h
 	cd /Users/joeyliu/fleetcomm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/joeyliu/fleetcomm /Users/joeyliu/fleetcomm /Users/joeyliu/fleetcomm/build /Users/joeyliu/fleetcomm/build /Users/joeyliu/fleetcomm/build/CMakeFiles/fleetcomm.dir/DependInfo.cmake "--color=$(COLOR)" fleetcomm
 .PHONY : CMakeFiles/fleetcomm.dir/depend
 

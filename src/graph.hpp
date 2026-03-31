@@ -1,14 +1,17 @@
 #pragma once
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
-//Our node needs an ID/location
+enum class ControlType { TrafficLight, StopSign, Uncontrolled };
+
 struct Node {
     std::string id;
     std::string name;
-    float x;
-    float y;
+    double x;
+    double y;
+    ControlType control;
 };
 
 struct Edge {
@@ -19,16 +22,28 @@ struct Edge {
     std::string to;
     float congestion;
     bool closed;
+    float speedLimit;
+    bool oneWay;
 };
 
-class RoadGraph { 
+// Free function — haversine distance between raw lat/lng coords, returns km
+float haversineDistance(float lat1, float lng1, float lat2, float lng2);
+
+class RoadGraph {
     public:
         void addNode(const Node& n);
         void addEdge(const Edge& e);
         void buildHardcodedMap();
 
-        std::vector<std::string> dijkstra(const std::string& start, const std::string& end);
-    
+        const Node& getNode(const std::string& id) const { return nodes.at(id); }
+        const Edge& getEdgeByIndex(int idx) const { return edges[idx]; }
+        int findEdgeIdx(const std::string& from, const std::string& to) const;
+        std::vector<std::string> getNodeIds() const;
+
+        std::vector<std::string> dijkstra(const std::string& start, const std::string& end,
+                                          const std::unordered_set<int>& excludedEdges = {});
+        float haversineDistance(const Node& a, const Node& b);
+
     private:
         std::unordered_map<std::string, Node> nodes;
         std::vector<Edge> edges;

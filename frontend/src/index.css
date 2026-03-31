@@ -1,0 +1,24 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; overflow: hidden; background: #f2f1ed; color: #1c1c1e; font-family: 'Inter', sans-serif; }
+
+.msym {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+  font-size: 18px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.leaflet-container { background: #e8e6e0 !important; }
+.leaflet-control-zoom { display: none !important; }
+.leaflet-control-attribution { font-size: 9px !important; color: #8e8e93 !important; background: rgba(255,255,255,0.7) !important; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d4cfc8; border-radius: 2px; }
+
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.25; } }
+.blink { animation: blink 2s infinite; }
+
+button { cursor: pointer; }
+button:focus { outline: none; }
