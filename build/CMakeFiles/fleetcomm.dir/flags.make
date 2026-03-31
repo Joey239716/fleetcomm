@@ -4,9 +4,9 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/opt/homebrew/Cellar/zeromq/4.3.5_2/include -I/opt/homebrew/Cellar/libsodium/1.0.21/include -I/opt/homebrew/Cellar/cppzmq/4.11.0/include -I/Users/joeyliu/fleetcomm/third_party
+CXX_INCLUDES = -I/opt/homebrew/Cellar/zeromq/4.3.5_2/include -I/opt/homebrew/Cellar/libsodium/1.0.21/include -I/opt/homebrew/Cellar/cppzmq/4.11.0/include -I/Users/joeyliu/fleetcomm/src/gen -I/Users/joeyliu/fleetcomm/third_party -isystem /opt/homebrew/include
 
-CXX_FLAGSarm64 = -g -std=gnu++17 -arch arm64 -DZMQ_BUILD_DRAFT_API=1
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -DZMQ_BUILD_DRAFT_API=1
 
-CXX_FLAGS = -g -std=gnu++17 -arch arm64 -DZMQ_BUILD_DRAFT_API=1
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -DZMQ_BUILD_DRAFT_API=1
 

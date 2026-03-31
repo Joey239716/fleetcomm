@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package fleetcomm;
+
+option go_package = "fleetcomm/gateway/gen/fleetcomm;fleetcomm";
+
+message CarState {
+  int32 id      = 1;
+  double lat    = 2;
+  double lng    = 3;
+  float speed   = 4;
+  float heading = 5;
+  int32 status  = 6;
+  float braking_intensity = 7;
+}
+
+message WorldState {
+  int32  tick = 1;
+  string mode = 2;
+  repeated CarState cars = 3;
+}
