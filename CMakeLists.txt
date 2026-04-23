@@ -4,9 +4,15 @@ project(fleetcomm)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(ZMQ REQUIRED libzmq)
-find_package(Protobuf REQUIRED)
+if(WIN32)
+    find_package(ZeroMQ CONFIG REQUIRED)
+    find_package(cppzmq CONFIG REQUIRED)
+    find_package(protobuf CONFIG REQUIRED)
+else()
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(ZMQ REQUIRED libzmq)
+    find_package(Protobuf REQUIRED)
+endif()
 
 # ── Protobuf codegen ──────────────────────────────────────────────────────
 set(PROTO_DIR     ${CMAKE_SOURCE_DIR}/proto)
@@ -35,19 +41,28 @@ add_executable(fleetcomm
     ${PROTO_GEN_DIR}/fleetcomm.pb.cc
 )
 
-target_include_directories(fleetcomm PRIVATE
-    ${ZMQ_INCLUDE_DIRS}
-    /opt/homebrew/Cellar/cppzmq/4.11.0/include
-    ${Protobuf_INCLUDE_DIRS}
-    ${PROTO_GEN_DIR}
-    third_party
-)
-
-target_link_directories(fleetcomm PRIVATE ${ZMQ_LIBRARY_DIRS})
-
-target_link_libraries(fleetcomm
-    ${ZMQ_LIBRARIES}
-    protobuf::libprotobuf
-)
-
-target_compile_options(fleetcomm PRIVATE ${ZMQ_CFLAGS_OTHER})
+if(WIN32)
+    target_compile_definitions(fleetcomm PRIVATE _USE_MATH_DEFINES)
+    target_include_directories(fleetcomm PRIVATE
+        ${PROTO_GEN_DIR}
+        third_party
+    )
+    target_link_libraries(fleetcomm
+        libzmq
+        cppzmq
+        protobuf::libprotobuf
+    )
+else()
+    target_include_directories(fleetcomm PRIVATE
+        ${ZMQ_INCLUDE_DIRS}
+        ${Protobuf_INCLUDE_DIRS}
+        ${PROTO_GEN_DIR}
+        third_party
+    )
+    target_link_directories(fleetcomm PRIVATE ${ZMQ_LIBRARY_DIRS})
+    target_link_libraries(fleetcomm
+        ${ZMQ_LIBRARIES}
+        protobuf::libprotobuf
+    )
+    target_compile_options(fleetcomm PRIVATE ${ZMQ_CFLAGS_OTHER})
+endif()

@@ -39,3 +39,16 @@
 
 # debug information files
 *.dwo
+
+# Build directories
+build/
+build_win/
+
+# vcpkg installed packages
+vcpkg_installed/
+
+# Node / frontend
+frontend/node_modules/
+
+# Go
+gateway/fleetcomm
