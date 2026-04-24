@@ -50,7 +50,8 @@ class Car {
     bool move(const RoadGraph& graph);
     void applyHumanDriving(std::mt19937& rng, const RoadGraph& graph);
 
-    bool canSee(const Car& other, const Node& currentNode, const Node& nextNode) const;
+    bool canSee(const Car& other, const Node& currentNode, const Node& nextNode, const RoadGraph& graph) const;
+
 
     V2VMessage broadcast(const RoadGraph& graph) const;
     void applyV2VDriving(const RoadGraph& graph);

@@ -42,7 +42,7 @@ export default function App() {
           <>
             <Sidebar cars={cars} mode={mode} />
             <main style={{ flex: 1, position: 'relative', minWidth: 0, height: '100%' }}>
-              <FleetMap cars={cars} mode={mode} showTrail={showTrail} />
+              <FleetMap cars={cars} mode={mode} showTrail={showTrail} tick={tick} />
             </main>
           </>
         )}
