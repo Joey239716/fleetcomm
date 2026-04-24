@@ -55,7 +55,7 @@ protected:
     std::unordered_set<int> prevShockwaveEdges;
     std::vector<SimFrame> frames;
 
-    float averageFleetSpeed = 0.0f;
+    float averageThroughput = 0.0f;
     float stopRate          = 0.0f;
     float speedVariance     = 0.0f;
 };

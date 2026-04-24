@@ -17,8 +17,9 @@ export default function Sidebar({ cars, mode }: Props) {
   const active    = cars.filter(c => c.st === 0)
   const breakdown = cars.filter(c => c.st === 2)
   const stopped   = active.filter(c => c.spd < 5)
-  const avgSpeed  = active.length > 0
-    ? (active.reduce((s, c) => s + c.spd, 0) / active.length).toFixed(1)
+  // throughput = avg(speed / speedLimit) across active cars; braking_intensity = 1 - speed/limit
+  const avgThroughput = active.length > 0
+    ? active.reduce((s, c) => s + (1 - (c.braking_intensity ?? 0)), 0) / active.length
     : null
 
   const accentColor = mode === 'human' ? '#FF6B35' : '#2DB84B'
@@ -44,9 +45,9 @@ export default function Sidebar({ cars, mode }: Props) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 5 }}>
-              <span style={{ color: '#48484a' }}>Avg Speed</span>
+              <span style={{ color: '#48484a' }}>Throughput</span>
               <span style={{ fontFamily: "'JetBrains Mono', monospace", color: accentColor }}>
-                {avgSpeed ? `${avgSpeed} km/h` : '--'}
+                {avgThroughput !== null ? `${(avgThroughput * 100).toFixed(1)}%` : '--'}
               </span>
             </div>
             <div style={{ height: 2, background: '#e8e5e0', borderRadius: 1, overflow: 'hidden' }}>
@@ -55,7 +56,7 @@ export default function Sidebar({ cars, mode }: Props) {
                 background: `linear-gradient(90deg, ${mode === 'human' ? '#e85a1d,#FF6B35' : '#1db84b,#2DB84B'})`,
                 borderRadius: 1,
                 transition: 'width 0.5s ease',
-                width: avgSpeed ? `${Math.min(100, parseFloat(avgSpeed) / 60 * 100)}%` : '0%',
+                width: avgThroughput !== null ? `${Math.min(100, avgThroughput * 100)}%` : '0%',
               }} />
             </div>
           </div>

@@ -269,26 +269,29 @@ void TrafficSimulation::detectShockwaves() {
 }
 
 void TrafficSimulation::computeMetrics() {
-    int   activeCount = 0;
-    float speedSum    = 0.0f;
-    int   stopCount   = 0;
+    int   activeCount    = 0;
+    float throughputSum  = 0.0f;
+    int   stopCount      = 0;
 
     for (const auto& car : cars) {
         if (car.status != CarStatus::Active) continue;
         ++activeCount;
-        speedSum += car.speed;
+        float limit = graph.getEdgeByIndex(car.currentEdgeIdx).speedLimit;
+        throughputSum += (limit > 0.0f) ? (car.speed / limit) : 0.0f;
         if (car.speed < 5.0f) ++stopCount;
     }
 
     if (activeCount == 0) return;
 
-    averageFleetSpeed = speedSum / static_cast<float>(activeCount);
+    averageThroughput = throughputSum / static_cast<float>(activeCount);
     stopRate          = static_cast<float>(stopCount) / static_cast<float>(activeCount);
 
     float varianceSum = 0.0f;
     for (const auto& car : cars) {
         if (car.status != CarStatus::Active) continue;
-        float diff = car.speed - averageFleetSpeed;
+        float limit = graph.getEdgeByIndex(car.currentEdgeIdx).speedLimit;
+        float t = (limit > 0.0f) ? (car.speed / limit) : 0.0f;
+        float diff = t - averageThroughput;
         varianceSum += diff * diff;
     }
     speedVariance = varianceSum / static_cast<float>(activeCount);
@@ -311,9 +314,9 @@ void TrafficSimulation::printState() const {
 void TrafficSimulation::printMetrics() const {
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "\n=== Fleet Metrics (V2V: " << (v2vEnabled ? "ON" : "OFF") << ") ===\n";
-    std::cout << "Average speed:   " << averageFleetSpeed << " km/h\n";
+    std::cout << "Throughput:      " << (averageThroughput * 100.0f) << "%\n";
     std::cout << "Stop rate:       " << (stopRate * 100.0f) << "%\n";
-    std::cout << "Speed variance:  " << speedVariance << "\n";
+    std::cout << "Throughput var:  " << speedVariance << "\n";
     std::cout << "Shockwaves:      " << shockwaveCount << "\n";
 }
 
