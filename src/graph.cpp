@@ -134,6 +134,62 @@ int RoadGraph::findEdgeIdx(const std::string& from, const std::string& to) const
     return -1;
 }
 
+void RoadGraph::initIntersections() {
+    intersections.clear();
+    const double cosLat = cos(37.792 * M_PI / 180.0); // approx centre latitude
+
+    for (auto& [nodeId, node] : nodes) {
+        if (node.control != ControlType::TrafficLight) continue;
+
+        IntersectionState st;
+        st.phase      = 0;
+        st.phaseTimer = 150; // ticks per phase (~5 s at 30 fps)
+        st.phaseFromNodes.resize(2); // phase 0 = N-S green, phase 1 = E-W green
+
+        // Look at every edge that arrives at this node
+        for (int idx = 0; idx < (int)edges.size(); ++idx) {
+            const Edge& e = edges[idx];
+            const std::string* fromId = nullptr;
+            if (e.to == nodeId) {
+                fromId = &e.from;
+            } else if (!e.oneWay && e.from == nodeId) {
+                fromId = &e.to;
+            }
+            if (!fromId) continue;
+
+            const Node& fromNode = nodes.at(*fromId);
+            double dlat = node.x - fromNode.x;
+            double dlng = (node.y - fromNode.y) * cosLat;
+
+            // N-S dominant when |dlat| >= |dlng|, otherwise E-W
+            int phase = (std::abs(dlat) >= std::abs(dlng)) ? 0 : 1;
+            st.phaseFromNodes[phase].push_back(*fromId);
+        }
+
+        intersections[nodeId] = std::move(st);
+    }
+}
+
+void RoadGraph::tickIntersections() {
+    for (auto& [nodeId, st] : intersections) {
+        if (--st.phaseTimer <= 0) {
+            st.phase      = 1 - st.phase; // toggle between 0 and 1
+            st.phaseTimer = 150;
+        }
+    }
+}
+
+bool RoadGraph::isGreenFor(const std::string& nodeId, const std::string& fromNodeId) const {
+    auto it = intersections.find(nodeId);
+    if (it == intersections.end()) return true; // not a traffic light — always green
+    const IntersectionState& st = it->second;
+    const auto& greenApproaches = st.phaseFromNodes[st.phase];
+    for (const auto& id : greenApproaches) {
+        if (id == fromNodeId) return true;
+    }
+    return false;
+}
+
 void RoadGraph::buildHardcodedMap() {
     addNode({"N1", "Jackson & Kearny", 37.796226f, -122.405143f, ControlType::StopSign});
     addNode({"N2", "Jackson & Montgomery", 37.796424f, -122.403520f, ControlType::StopSign});
@@ -168,54 +224,54 @@ void RoadGraph::buildHardcodedMap() {
     addNode({"N32", "Market & Montgomery", 37.788815f, -122.401983f, ControlType::TrafficLight});
     addNode({"N30", "Bush & Market", 37.791057f, -122.399159f, ControlType::TrafficLight});
     addNode({"N33", "Front & Market", 37.792609f, -122.397180f, ControlType::TrafficLight});
-    addNode({"N34", "N34", 37.793514f, -122.397630f, ControlType::StopSign});
-    addNode({"N35", "N35", 37.790254f, -122.400591f, ControlType::StopSign});
-    addNode({"N36", "N36", 37.790044f, -122.402225f, ControlType::StopSign});
-    addNode({"N37", "N37", 37.790309f, -122.400106f, ControlType::StopSign});
-    addNode({"N38", "N38", 37.792560f, -122.397424f, ControlType::StopSign});
-    addNode({"N39", "N39", 37.794449f, -122.397802f, ControlType::StopSign});
-    addNode({"N40", "N40", 37.795339f, -122.398006f, ControlType::StopSign});
-    addNode({"N41", "N41", 37.796187f, -122.398177f, ControlType::StopSign});
-    addNode({"N42", "N42", 37.797093f, -122.398361f, ControlType::StopSign});
-    addNode({"N43", "N43", 37.797242f, -122.397201f, ControlType::StopSign});
-    addNode({"N44", "N44", 37.796356f, -122.397024f, ControlType::StopSign});
-    addNode({"N45", "N45", 37.796632f, -122.395570f, ControlType::StopSign});
-    addNode({"N46", "N46", 37.795110f, -122.394412f, ControlType::StopSign});
-    addNode({"N47", "N47", 37.794788f, -122.394100f, ControlType::StopSign});
-    addNode({"N48", "N48", 37.792609f, -122.391365f, ControlType::StopSign});
-    addNode({"N49", "N49", 37.791176f, -122.390646f, ControlType::StopSign});
-    addNode({"N50", "N50", 37.789506f, -122.388618f, ControlType::StopSign});
-    addNode({"N51", "N51", 37.788844f, -122.389412f, ControlType::StopSign});
-    addNode({"N53", "N53", 37.788158f, -122.390324f, ControlType::StopSign});
-    addNode({"N54", "N54", 37.795530f, -122.403327f, ControlType::StopSign});
-    addNode({"N55", "N55", 37.795330f, -122.404969f, ControlType::StopSign});
-    addNode({"N56", "N56", 37.795742f, -122.401696f, ControlType::StopSign});
-    addNode({"N57", "N57", 37.795877f, -122.400511f, ControlType::StopSign});
-    addNode({"N58", "N58", 37.795479f, -122.396836f, ControlType::StopSign});
-    addNode({"N59", "N59", 37.794593f, -122.396654f, ControlType::StopSign});
-    addNode({"N60", "N60", 37.793669f, -122.396493f, ControlType::StopSign});
-    addNode({"N61", "N61", 37.793291f, -122.396348f, ControlType::StopSign});
-    addNode({"N62", "N62", 37.794322f, -122.393339f, ControlType::StopSign});
-    addNode({"N63", "N63", 37.793728f, -122.392614f, ControlType::StopSign});
-    addNode({"N64", "N64", 37.789370f, -122.391858f, ControlType::StopSign});
-    addNode({"N65", "N65", 37.790099f, -122.390957f, ControlType::StopSign});
-    addNode({"N66", "N66", 37.791286f, -122.392480f, ControlType::StopSign});
-    addNode({"N67", "N67", 37.790625f, -122.393360f, ControlType::StopSign});
-    addNode({"N68", "N68", 37.791846f, -122.394969f, ControlType::StopSign});
-    addNode({"N69", "N69", 37.792575f, -122.394047f, ControlType::StopSign});
-    addNode({"N70", "N70", 37.793258f, -122.393205f, ControlType::StopSign});
-    addNode({"N71", "N71", 37.794453f, -122.394819f, ControlType::StopSign});
-    addNode({"N72", "N72", 37.793817f, -122.395672f, ControlType::StopSign});
-    addNode({"N73", "N73", 37.792015f, -122.391654f, ControlType::StopSign});
-    addNode({"N74", "N74", 37.792329f, -122.391230f, ControlType::StopSign});
-    addNode({"N75", "N75", 37.790769f, -122.390131f, ControlType::StopSign});
-    addNode({"N76", "N76", 37.793122f, -122.396407f, ControlType::StopSign});
-    addNode({"N77", "N77", 37.793003f, -122.396273f, ControlType::StopSign});
-    addNode({"N78", "N78", 37.794764f, -122.402375f, ControlType::StopSign});
-    addNode({"N79", "N79", 37.794326f, -122.402292f, ControlType::StopSign});
-    addNode({"N80", "N80", 37.794433f, -122.401421f, ControlType::StopSign});
-    addNode({"N81", "N81", 37.794230f, -122.403066f, ControlType::StopSign});
-    addNode({"N82", "N82", 37.793887f, -122.402205f, ControlType::StopSign});
+    addNode({"N34", "California & Davis", 37.793514f, -122.397630f, ControlType::StopSign});
+    addNode({"N35", "Sutter & Sansome", 37.790254f, -122.400591f, ControlType::StopSign});
+    addNode({"N36", "Sutter & Montgomery", 37.790044f, -122.402225f, ControlType::StopSign});
+    addNode({"N37", "Sutter & Sansome", 37.790309f, -122.400106f, ControlType::StopSign});
+    addNode({"N38", "Pine & Davis", 37.792560f, -122.397424f, ControlType::StopSign});
+    addNode({"N39", "Sacramento & Davis", 37.794449f, -122.397802f, ControlType::StopSign});
+    addNode({"N40", "Clay & Davis", 37.795339f, -122.398006f, ControlType::StopSign});
+    addNode({"N41", "Washington & Davis", 37.796187f, -122.398177f, ControlType::StopSign});
+    addNode({"N42", "Jackson & Davis", 37.797093f, -122.398361f, ControlType::StopSign});
+    addNode({"N43", "Jackson & Front", 37.797242f, -122.397201f, ControlType::StopSign});
+    addNode({"N44", "Washington & Front", 37.796356f, -122.397024f, ControlType::StopSign});
+    addNode({"N45", "Washington & Drumm", 37.796632f, -122.395570f, ControlType::StopSign});
+    addNode({"N46", "Embarcadero & Sacramento", 37.795110f, -122.394412f, ControlType::StopSign});
+    addNode({"N47", "Embarcadero & Sacramento", 37.794788f, -122.394100f, ControlType::StopSign});
+    addNode({"N48", "Embarcadero & Folsom", 37.792609f, -122.391365f, ControlType::StopSign});
+    addNode({"N49", "Embarcadero & Howard", 37.791176f, -122.390646f, ControlType::StopSign});
+    addNode({"N50", "Embarcadero & Harrison", 37.789506f, -122.388618f, ControlType::StopSign});
+    addNode({"N51", "Harrison & Main", 37.788844f, -122.389412f, ControlType::StopSign});
+    addNode({"N53", "Main & Harrison", 37.788158f, -122.390324f, ControlType::StopSign});
+    addNode({"N54", "Montgomery & Clay", 37.795530f, -122.403327f, ControlType::StopSign});
+    addNode({"N55", "Kearny & Clay", 37.795330f, -122.404969f, ControlType::StopSign});
+    addNode({"N56", "Sansome & Clay", 37.795742f, -122.401696f, ControlType::StopSign});
+    addNode({"N57", "Battery & Clay", 37.795877f, -122.400511f, ControlType::StopSign});
+    addNode({"N58", "Clay & Drumm", 37.795479f, -122.396836f, ControlType::StopSign});
+    addNode({"N59", "Sacramento & Drumm", 37.794593f, -122.396654f, ControlType::StopSign});
+    addNode({"N60", "California & Drumm", 37.793669f, -122.396493f, ControlType::StopSign});
+    addNode({"N61", "Pine & Drumm", 37.793291f, -122.396348f, ControlType::StopSign});
+    addNode({"N62", "Embarcadero & Sacramento", 37.794322f, -122.393339f, ControlType::StopSign});
+    addNode({"N63", "Embarcadero & California", 37.793728f, -122.392614f, ControlType::StopSign});
+    addNode({"N64", "Main & Howard", 37.789370f, -122.391858f, ControlType::StopSign});
+    addNode({"N65", "Folsom & Main", 37.790099f, -122.390957f, ControlType::StopSign});
+    addNode({"N66", "Spear & Howard", 37.791286f, -122.392480f, ControlType::StopSign});
+    addNode({"N67", "Howard & Spear", 37.790625f, -122.393360f, ControlType::StopSign});
+    addNode({"N68", "Mission & Spear", 37.791846f, -122.394969f, ControlType::StopSign});
+    addNode({"N69", "Mission & Beale", 37.792575f, -122.394047f, ControlType::StopSign});
+    addNode({"N70", "Mission & Main", 37.793258f, -122.393205f, ControlType::StopSign});
+    addNode({"N71", "Market & Beale", 37.794453f, -122.394819f, ControlType::TrafficLight});
+    addNode({"N72", "Market & Main", 37.793817f, -122.395672f, ControlType::TrafficLight});
+    addNode({"N73", "Steuart & Howard", 37.792015f, -122.391654f, ControlType::StopSign});
+    addNode({"N74", "Howard & Steuart", 37.792329f, -122.391230f, ControlType::StopSign});
+    addNode({"N75", "Folsom & Beale", 37.790769f, -122.390131f, ControlType::StopSign});
+    addNode({"N76", "Main & Market", 37.793122f, -122.396407f, ControlType::TrafficLight});
+    addNode({"N77", "Main & Market", 37.793003f, -122.396273f, ControlType::TrafficLight});
+    addNode({"N78", "Leidesdorff & Sacramento", 37.794764f, -122.402375f, ControlType::StopSign});
+    addNode({"N79", "Leidesdorff & California", 37.794326f, -122.402292f, ControlType::StopSign});
+    addNode({"N80", "Sansome & Sacramento", 37.794433f, -122.401421f, ControlType::StopSign});
+    addNode({"N81", "Montgomery & California", 37.794230f, -122.403066f, ControlType::StopSign});
+    addNode({"N82", "Leidesdorff & California", 37.793887f, -122.402205f, ControlType::StopSign});
 
     addEdge({"E1", "Jackson St", haversineDistance(nodes["N1"], nodes["N2"]), "N1", "N2", 0.0f, false, 40.0f, false});
     addEdge({"E2", "Jackson St", haversineDistance(nodes["N2"], nodes["N3"]), "N2", "N3", 0.0f, false, 40.0f, false});

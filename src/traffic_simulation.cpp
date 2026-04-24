@@ -9,6 +9,7 @@ TrafficSimulation::TrafficSimulation()
     : rng(std::random_device{}()),
       spatialGrid(37.786, 37.798, -122.407, -122.396, 4, 4) {
     graph.buildHardcodedMap();
+    graph.initIntersections();
 }
 
 void TrafficSimulation::spawnCar(int id, const CarModel& model, const std::string& fromNodeId, const std::string& toNodeId) {
@@ -31,6 +32,7 @@ void TrafficSimulation::spawnCar(int id, const CarModel& model, const std::strin
 void TrafficSimulation::tick() {
     ++tickCount;
 
+    graph.tickIntersections();
     tickRepairs();
 
     // Rebuild spatial grid
