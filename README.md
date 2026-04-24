@@ -46,6 +46,8 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 This installs all dependencies, builds the C++ simulation, and installs frontend/Go packages. Takes ~10 minutes the first time.
 
+> **After setup.ps1 finishes, close this terminal and open a fresh one** before running anything. Winget updates PATH at the system level — existing terminals won't see it.
+
 **3. Open three terminals and run each component**
 
 Terminal 1 — C++ simulation:
